@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Connosco</title>
+    <link rel="stylesheet" href="_css/estilo.css">
+    <link rel="stylesheet" href="_css/form.css">
+</head>
+<script language="javascript" src="_javascript/funcoes.js"></script>
+<script>
+    function calc_total() {
+        var qtd = parseInt(document.getElementById('iQtd').value);
+        total = qtd * 250;
+        document.getElementById('iTot').value = tot;
+    }
+</script>
+<body>
+    <div id="interface">
+        <header id="cabecalho">
+            <hgroup>
+                <h1> Google </h1>
+                <h2>A revolução do Google está a chegar</h2>
+            </hgroup>
+            <img id="icone" src="_imagens/contato.png" alt="">
+            <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul>
+                    <li onmouseover="mudafoto('_imagens/home.png')" onmouseout="mudafoto('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                    <li onmouseover="mudafoto('_imagens/especificacoes.png')" onmouseout="mudafoto('_imagens/contato.png')"><a href="specs.html
+                    ">Especificações</a></li>
+                    <li onmouseover="mudafoto('_imagens/fotos.png')" onmouseout="mudafoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                    <li onmouseover="mudafoto('_imagens/multimidia.png')" onmouseout="mudafoto('_imagens/contato.png')"><a href="multimidia.html">Multimédia</a></li>
+                    <li onmouseover="mudafoto('_imagens/contato.png')" onmouseout="mudafoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="corpo-full">
+            <article id="noticia_principal">
+                <header id="cabecalho-artigo">
+                    <hgroup>
+                        <h3>Fale connosco > Contato</h3>
+                        <h1>Formulário de Contato</h1>
+                        <h2>por Tiago</h2>
+                        <h3 class="direito" >Atualizado em 5/março/2026</h3>
+                    </hgroup>
+                </header>
+
+                <form method="post" id="fcontato" action="mailto:11255.tiagovitoria@alunos.ae-almeirim.pt" oninput="calc_total()">
+                    <fieldset id="utilizador">
+                        <legend>Identificação do utilizador</legend>
+                            <p><label for="iNome">Nome: </label><input type="text" name="tNome" id="iNome" size="20" maxlength="30" placeholder="Nome completo"></p>
+                            <p><label for="iSenha">Senha: </label><input type="password" name="tSenha" id="iSenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
+                            <p><label for="iEmail">Email: </label><input type="email" name="tEmail" id="iEmail" size="20" maxlength="40"></p>
+                            <fieldset id="isexo">
+                                <legend>Sexo</legend>
+                                    <input type="radio" name="tSexo" id="iMasc" checked/> <label for="iMasc">Masculino</label>
+                                    <input type="radio" name="tSexo" id="iFem" /> <label for="iFem">Feminino</label>
+                            </fieldset>
+                            <p>Data de Nascimento: <input type="date" name="tData" id="iData"></p>
+
+                    </fieldset>
+                    <fieldset id="iEndereco">
+                        <legend>Endereço do Utilizador</legend>
+                            <p><label for="iRua">Morada: </label> <input type="text" name="tRua" id="iRua"  size="13" maxlength="80" placeholder="Rua, Av, Trav, ..."></p>
+                            <p><label for="iNum">Número: </label><input type="number" name="tNum" id="iNum" min="0" max="9999"></p>
+                            <p><label for="iDist">Distrito: </label>    <select name="tDist" id="iDist">
+                                <optgroup label="Região Centro">
+                                    <option value="Avr">Aveiro</option>
+                                    <option value="Grd">Guarda</option>
+                                    <option value="Cbr">Coimbra</option>
+                                    <option value="CB">Castelo Branco</option>
+                                    <option value="Lra">Leiria</option>
+                                    
+                                </optgroup>
+                                <optgroup label for="Região de Lisboa e Vale do Tejo">
+                                    <option value="Lba">Lisboa</option>
+                                    <option value="Str" selected>Santarém</option>
+                                    <option value="Stb">Setúbal</option>
+                                    
+                                </optgroup>
+                            </select></p>
+                            <p><label for="iCid">Cidade: </label><input type="text" name="tCid" id="iCid"maxlength="40" size="20" placeholder="Nome da tua Cidade" list="cidades"></p>
+                            <datalist id="cidades">
+                                <option value="Almeirim"></option>
+                                <option value="Fazendas de Almeirim"></option>
+                                <option value="Benfica do Ribatejo"></option>
+                                <option value="Raposa"></option>
+                                <option value="Alpiarça"></option>
+                            </datalist>
+                    </fieldset>
+                    <fieldset id="iMensagem">
+                        <legend>Mensagem do utilizador</legend>
+                        <p><label for="iUrg">Grau de Urgencia: </label>Mín.<input type="range" name="tUrg" id="iUrg" min="0" max="10" step="2">Máx.</p>
+                        <p><label for="imsg">Mensagem: </label><textarea name="tMsg" id="iMsg" cols="40" rows="5" placeholder="Escreva a sua Mensagem"></textarea></p>
+                    </fieldset>
+                    <fieldset id="iPedido">
+                        <legend>Quero um Google Glass</legend>
+                        <p><input type="checkbox" name="tPed" id="iPed" checked><label for="iPed">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                        <p><label for="iCor">Cor: </label><input type="color" name="tCor" id="iCor" value="#0000FF"></p>
+                        <p><label for="iQtd">Quantidade: </label><input type="number" name="tQtd" id="iQtd" min="0" max="5" value="0"></p>
+                        <p><label for="iTot">Preço Total: € </label><input type="text" name="tTot" id="iTot" placeholder="Total a pagar" readonly></p>
+                    </fieldset>
+                    <input type="image" name="tEnviar" src="_imagens/botao-enviar.png">
+                </form>
+            </article>
+        </section>
+
+<footer id="rodape">
+            <p>Copyright &copy;2026 - by Tiago <br>
+            <a href="https://facebook.com">Facebook</a> | <a href="https://x.com">X</a></p>
+            
+        </footer>
+    </div>
+
+</body>
+</html>
